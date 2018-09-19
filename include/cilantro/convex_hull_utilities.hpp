@@ -4,7 +4,20 @@
 #include <cilantro/3rd_party/libqhullcpp/QhullFacetSet.h>
 #include <cilantro/3rd_party/libqhullcpp/QhullFacetList.h>
 #include <cilantro/3rd_party/libqhullcpp/QhullVertexSet.h>
+// Disable unused local variable warnings for this file
+#if defined(__GNUC__) || defined(__GNUG__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-variable"
+#elif defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable : 4101)
+#endif
 #include <cilantro/3rd_party/eigen_quadprog/eiquadprog.hpp>
+#if defined(__GNUC__) || defined(__GNUG__)
+#pragma GCC diagnostic pop
+#elif defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 #include <cilantro/principal_component_analysis.hpp>
 
 namespace cilantro {
