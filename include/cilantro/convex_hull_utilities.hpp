@@ -55,7 +55,7 @@ namespace cilantro {
         Eigen::MatrixXd G(ineq_test*(ineq_test.transpose()));
         Eigen::JacobiSVD<Eigen::MatrixXd> svd(G, Eigen::ComputeFullU | Eigen::ComputeFullV);
         Eigen::VectorXd S(svd.singularValues());
-        for (size_t i = 0; i < S.size(); i++) {
+        for (Eigen::Index i = 0; i < S.size(); i++) {
             if (S(i) < tol_sq) S(i) = tol_sq;
         }
         G = svd.matrixU()*(S.asDiagonal())*(svd.matrixV().transpose());
