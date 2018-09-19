@@ -577,8 +577,8 @@ namespace cilantro {
                               bool simplicial_facets = true,
                               double merge_tol = 0.0)
     {
-        const size_t dim = points.rows();
-        const size_t num_points = points.cols();
+        const Eigen::Index dim = points.rows();
+        const Eigen::Index num_points = points.cols();
 
         if (num_points < dim+1) {
             halfspaces.resize(dim+1, 2);
@@ -634,7 +634,7 @@ namespace cilantro {
         orgQhull::QhullFacetList qh_facets = qh.facetList();
 
         // Establish mapping between hull vertex ids and hull points indices
-        size_t max_id = 0;
+        countT max_id = 0;
         for (auto vi = qh.vertexList().begin(); vi != qh.vertexList().end(); ++vi)
             if (max_id < vi->id()) max_id = vi->id();
         std::vector<size_t> vid_to_ptidx(max_id + 1);
